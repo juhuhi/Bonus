@@ -71,12 +71,12 @@ public class ImplementsLS {
 			int fliesize =0;
 			for(File tempFile : fileList) {
 				   if (tempFile.isDirectory()) {
-		                elements.add(tempFile.length()+" "+tempFile.getName());
+					   if(tempFile.getName().indexOf(".")!=0)elements.add(tempFile.length()+" "+tempFile.getName());
 		                fliesize+=tempFile.length();
 		                
 		            }
 		            if (tempFile.isFile()) {
-		            	elements.add(tempFile.length()+" "+tempFile.getName());
+		            	 if(tempFile.getName().indexOf(".")!=0)elements.add(tempFile.length()+" "+tempFile.getName());
 		            	fliesize+=tempFile.length();
 		            }
 			}
