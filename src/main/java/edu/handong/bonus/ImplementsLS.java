@@ -18,9 +18,11 @@ import org.apache.commons.cli.Options;
 public class ImplementsLS {
 	String pOption;
 	boolean sOption;
+//	boolean tOption;
 	boolean fOption;
 	boolean mOption;
 	boolean rOption;
+//	boolean aOption;
 	String setPath;
 
 	boolean help;
@@ -62,7 +64,7 @@ public class ImplementsLS {
 				}
 				elements.add(".");
 				elements.add("..");
-//				System.out.println("ffffffffffffffffffffffff");
+
 				
 		}else if(sOption){
 			File []fileList=file.listFiles();
@@ -92,9 +94,43 @@ public class ImplementsLS {
 		            	if(tempFile.getName().indexOf(".")!=0)elements.add(tempFile.getName());
 		            }
 			}
-//			System.out.println("rrrrrrrrrrrrrrrrrrrrrrr");
+
 			Collections.reverse(elements);
 		
+//		}else if(tOption){
+//			
+//			
+//			File []fileList=file.listFiles();
+//			for(File tempFile : fileList) {
+//				long lastModified = tempFile.lastModified();
+//				   if (tempFile.isDirectory()) {
+//		                if(tempFile.getName().indexOf(".")!=0)elements.add(tempFile.getName());
+//		                	
+//		            }
+//		            if (tempFile.isFile()) {
+//		            	if(tempFile.getName().indexOf(".")!=0)elements.add(tempFile.getName());
+//		            }
+//			}
+//
+//			Collections.reverse(elements);
+//		
+//		}else if(tOption){
+//			
+//			
+//			File []fileList=file.listFiles();
+//			for(File tempFile : fileList) {
+//				long lastModified = tempFile.lastModified();
+//				   if (tempFile.isDirectory()) {
+//		                if(tempFile.getName().indexOf(".")!=0)elements.add(tempFile.getName());
+//		                	
+//		            }
+//		            if (tempFile.isFile()) {
+//		            	if(tempFile.getName().indexOf(".")!=0)elements.add(tempFile.getName());
+//		            }
+//			}
+//
+//			Collections.reverse(elements);
+//		
 		}else {
 			File []fileList=file.listFiles();
 			for(File tempFile : fileList) {
@@ -105,7 +141,7 @@ public class ImplementsLS {
 		            if (tempFile.isFile()) {
 		            	if(tempFile.getName().indexOf(".")!=0)elements.add(tempFile.getName());
 		            }
-			}System.out.println("elsekdkddkd");
+			}
 		}
 		
 		if(mOption) {
@@ -141,7 +177,10 @@ public class ImplementsLS {
 			sOption = cmd.hasOption("s");
 			fOption= cmd.hasOption("f");
 			mOption = cmd.hasOption("m");
+//			tOption = cmd.hasOption("t");
 			rOption= cmd.hasOption("r");
+//			aOption = cmd.hasOption("a");
+			
 			
 			help = cmd.hasOption("h");
 
@@ -165,26 +204,35 @@ public class ImplementsLS {
 				.argName("Relative path")
 				.build());
 		
+//		----------------------------------------------------------
 		options.addOption(Option.builder("s").longOpt("sOption")
-				.desc("print the allocated size of each file, in blocks")
+				.desc("print the size of each file")
 				.argName("size")
 				.build());
 		
 		options.addOption(Option.builder("f").longOpt("fOption")
 				.desc("do not sort, enable -au, disable -ls --color")
-				.argName("output path")
+				.argName("file")
 				.build());
 		
 		options.addOption(Option.builder("m").longOpt("mOption")
 				.desc("fill width with a comma separated list of entries")
-				.argName("output path")
+				.argName("comma")
 				.build());
 		
 		options.addOption(Option.builder("r").longOpt("rOption")
 				.desc("reverse order while sorting")
 				.argName("reverse")
 				.build());
-		
+//		options.addOption(Option.builder("t").longOpt("rOption")
+//				.desc("reverse order while sorting")
+//				.argName("reverse")
+//				.build());
+//		options.addOption(Option.builder("a").longOpt("aOption")
+//				.desc("reverse order while sorting")
+//				.argName("reverse")
+//				.build());
+//		
 
 		
 		// add options by using OptionBuilder
